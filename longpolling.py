@@ -9,10 +9,7 @@ static_nums = ['44', '443', '387', '187', '99']
 csv_path = 'users_info.csv'
 user_ids = []
 
-print('yes')
 for event in longpoll.listen():
-    print('loop')
-    print(event.obj)
     try:
         if event.type == VkBotEventType.MESSAGE_NEW:
             with open('users_info.csv', 'r') as file:
@@ -20,7 +17,6 @@ for event in longpoll.listen():
 
             for user_info in data:
                 user = user_info.rstrip().split(',')
-                print(user)
                 if user[0] not in user_ids:
                     user_ids.append(user[0])
 
